@@ -1,64 +1,62 @@
-Research Assistant Chrome Extension
-A powerful AI-powered Chrome extension that helps you research, analyze, and organize information from any webpage.
+# 🧠 Research Assistant Chrome Extension  
+**An AI-powered Chrome extension that helps you research, analyze, and organize information from any webpage.**
 
-🚀 Features
-Core Research Functions
-Summarize: Get concise summaries of selected text
+---
 
-Explain: Understand complex concepts in simple terms
+## 🚀 Features
 
-Key Points: Extract main ideas as actionable bullet points
+### 🔍 Core Research Functions
+- **Summarize** — Instantly generate concise summaries of selected text  
+- **Explain** — Understand complex concepts in simple terms  
+- **Key Points** — Extract main ideas as actionable bullet points  
+- **Suggest** — Discover related topics and further reading  
 
-Suggest: Discover related topics and further reading
+### ⚙️ Productivity Tools
+- **Research Notes** — Save and organize your findings  
+- **Export Notes** — Download your research as `.txt` files  
+- **Context Menu** — Right-click selected text for quick AI actions  
+- **Auto-save** — All notes are stored locally and automatically  
 
-Productivity Tools
-Research Notes: Save and organize your findings
+---
 
-Export Notes: Download your research as text files
+## 🛠️ Installation
 
-Context Menu: Right-click selected text for quick actions
+### 📋 Prerequisites
+- **Chrome Browser** (version 88 or higher)  
+- **Java 17+**  
+- **Spring Boot 3.x**  
+- **Gemini API Key** from [Google AI Studio](https://makersuite.google.com/app/apikey)
 
-Auto-save: Notes are automatically saved locally
+---
 
-🛠️ Installation
-Prerequisites
-Chrome Browser (version 88+)
+### ⚙️ Backend Setup
 
-Java 17+ (for backend)
-
-Spring Boot 3.x
-
-Gemini API key from Google AI Studio
-
-Backend Setup
-Clone the repository
-
-bash
+```bash
+# Clone the repository
 git clone <repository-url>
 cd research-assistant
-Configure API keys
-Create application.properties:
+Configure API Keys
+Create a file named application.properties inside src/main/resources:
 
 properties
+Copy code
 gemini.api.url=https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=
 gemini.api.key=YOUR_GEMINI_API_KEY
 server.port=8080
-Run the backend
-
+Run the Backend
 bash
+Copy code
 ./mvnw spring-boot:run
-Extension Installation
-Open Chrome Extensions
+Your backend will start on http://localhost:8080
 
-Navigate to chrome://extensions/
+🧩 Chrome Extension Setup
+Open Chrome and go to chrome://extensions/
 
-Enable "Developer mode" (toggle in top-right)
+Enable Developer Mode (toggle in the top-right corner)
 
-Load Extension
+Click Load Unpacked
 
-Click "Load unpacked"
-
-Select the extension folder containing:
+Select the extension/ folder containing:
 
 manifest.json
 
@@ -70,126 +68,101 @@ sidepanel.js
 
 background.js
 
-Verify Installation
-
-Look for Research Assistant icon in toolbar
-
-Click to open side panel
+✅ Once loaded, you should see the Research Assistant icon in your Chrome toolbar.
 
 📖 How to Use
-Basic Usage
-Select Text: Highlight any text on a webpage
+🪄 Basic Usage
+Select Text — Highlight any text on a webpage
 
-Choose Action: Click one of the research buttons:
+Choose Action — Click one of the buttons in the side panel:
 
-📝 Summarize - Get brief overview
+📝 Summarize – Get a brief overview
 
-🔍 Explain - Simple explanations
+🔍 Explain – Understand clearly
 
-✅ Key Points - Main ideas as bullets
+✅ Key Points – Extract main ideas
 
-💡 Suggest - Related topics
+💡 Suggest – Discover related insights
 
-Advanced Features
-Right-click Menu: Right-click selected text for quick access
+⚡ Advanced Features
+Right-click Menu — Instantly access AI tools via the context menu
 
-Research Notes:
+Research Notes
 
-Type notes in the text area
+Write your own notes in the text area
 
-Buttons enable automatically when text is entered
+Notes auto-save locally
 
-Save locally or export as file
+Export them anytime as .txt files
 
-Results: Appear at the top for immediate visibility
+Instant Results — AI-generated outputs appear at the top of the panel
 
-Keyboard Shortcuts
-Right-click selected text for context menu options
+⌨️ Keyboard Shortcuts
+Right-click selected text → choose AI action
 
-Use toolbar icon for full feature access
+Toolbar icon → open or close the Research Assistant panel
 
-🏗️ Architecture
-Frontend (Chrome Extension)
-Side Panel UI: Clean, responsive interface
+🏗️ Architecture Overview
+🖥️ Frontend (Chrome Extension)
+Side Panel UI — Clean, responsive interface
 
-Content Scripts: Text selection handling
+Content Scripts — Handle text selections
 
-Background Service: Context menu and panel management
+Background Service — Manage context menus & side panel
 
-Chrome Storage: Local data persistence
+Chrome Storage — Persist notes locally
 
-Backend (Spring Boot)
-REST API: /api/research/process
+⚙️ Backend (Spring Boot)
+REST API — /api/research/process
 
-Gemini AI Integration: Google's generative AI
+Gemini AI Integration — Uses Google’s generative model
 
-Request Processing: Dynamic prompt generation
+Request Processing — Builds context-aware prompts dynamically
 
-Response Parsing: Structured data extraction
+Response Parsing — Extracts structured summaries
 
 🔧 Configuration
-Backend Endpoints
-POST /api/research/process - Main research processing
+🧠 Backend Endpoints
+Method	Endpoint	Description
+POST	/api/research/process	Main AI research processing
+GET	/api/research/health	Check backend service status
 
-GET /api/research/health - Service status check
+🔐 Extension Permissions
+activeTab — Access webpage content
 
-Extension Permissions
-activeTab - Access current webpage content
+storage — Save research notes
 
-storage - Save notes and preferences
+sidePanel — Display research UI
 
-sidePanel - Display research interface
+contextMenus — Enable right-click integration
 
-contextMenus - Right-click integration
-
-scripting - Text selection capabilities
+scripting — Extract selected text
 
 🐛 Troubleshooting
 Common Issues
-"API Error"
-
-Check backend is running on port 8080
-
-Verify Gemini API key is valid
-
-Ensure internet connection
-
-"No text selected"
-
-Select at least 10 characters of text
-
-Ensure text is not in protected areas
-
-Extension not loading
-
-Verify all files are in correct location
-
-Check Chrome version compatibility
-
-Reload extension in chrome://extensions
-
-Notes not saving
-
-Check Chrome storage permissions
-
-Ensure notes contain text before saving
+Issue	Cause	Solution
+API Error	Backend not running or invalid key	Ensure backend is running and API key is valid
+No text selected	Text area empty or protected	Highlight at least 10 characters of visible text
+Extension not loading	Missing or misplaced files	Recheck folder structure and reload extension
+Notes not saving	Chrome storage issue	Allow storage permission and ensure notes contain text
 
 Debug Mode
-Open Chrome Developer Tools:
+Right-click the extension icon → Inspect popup
 
-Right-click extension icon → "Inspect popup"
+Open Console to check error messages
 
-Check Console for error messages
-
-Network tab for API calls
+View Network Tab for API request logs
 
 📁 File Structure
-text
+swift
+Copy code
 research-assistant/
 ├── backend/
-│   ├── src/main/java/com/alok/Assistant/
-│   │   ├── controller/ResearchController.java
-│   │   ├── service/ResearchService.java
+│   ├── src/main/java/com/alok/assistant/
+│   │   ├── controller/
+│   │   │   └── ResearchController.java
+│   │   ├── service/
+│   │   │   └── ResearchService.java
 │   │   └── model/
 │   │       ├── ResearchRequest.java
 │   │       └── GeminiResponse.java
@@ -201,42 +174,47 @@ research-assistant/
     ├── sidepanel.js
     └── background.js
 🔒 Privacy & Security
-Local Storage: Notes saved only in your browser
+🗂️ Local Storage Only — Notes stay in your browser
 
-No Data Collection: No user data sent to external servers
+❌ No Data Collection — No user data sent externally
 
-API Keys: Configure your own Gemini API key
+🔑 Secure API Keys — Use your personal Gemini key
 
-Permissions: Minimal required permissions only
+⚙️ Minimal Permissions — Only what's necessary
 
-🚀 Future Enhancements
-Multiple AI provider support
+🌱 Future Enhancements
+🔄 Multi-AI Provider Support
 
-Custom prompt templates
+🧩 Custom Prompt Templates
 
-Research session management
+🧠 Research Session Management
 
-Citation generation
+📚 Citation Generation
 
-Cross-browser support
+🌐 Cross-Browser Support (Edge, Firefox)
 
 📄 License
-MIT License - feel free to modify and distribute.
+This project is licensed under the MIT License — free to use, modify, and distribute.
 
 🤝 Contributing
-Fork the repository
+Fork this repository
 
-Create feature branch
+Create your feature branch (git checkout -b feature-name)
 
-Submit pull request with description
+Commit your changes (git commit -m "Add feature")
+
+Push to the branch (git push origin feature-name)
+
+Create a Pull Request 🎉
 
 📞 Support
-For issues and questions:
+For questions or issues:
 
-Check troubleshooting section
+Review the Troubleshooting section
 
-Review Chrome extension documentation
+Check your Chrome Developer Tools Console
 
-Verify backend service is running
+Ensure the backend service is running
 
 Happy Researching! 🎯
+Simplify your research. One click at a time.
