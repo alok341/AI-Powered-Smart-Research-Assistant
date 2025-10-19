@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Research Assistant</title>
+    <link rel="stylesheet" href="sidepanel.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h2>AI-Powered Research Assistant</h2>
+            <p class="subtitle">created by Alokkumar Dubey</p>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="section">
+            <h3>Quick Actions</h3>
+            <div class="actions">
+                <button id="summarizeBtn" class="btn primary">Summarize</button>
+                <button id="suggestBtn" class="btn primary">Suggest</button>
+                <button id="explainBtn" class="btn primary">Explain</button>
+                <button id="keypointsBtn" class="btn primary">Key Points</button>
+            </div>
+        </div>
+
+        <!-- Notes -->
+        <div class="section">
+            <h3>Research Notes</h3>
+            <textarea id="notes" placeholder="Add your research notes here..." class="form-control"></textarea>
+            <div class="button-group">
+                <button id="saveNotesBtn" class="btn secondary">Save Notes</button>
+                <button id="clearNotesBtn" class="btn secondary">Clear</button>
+                <button id="exportNotesBtn" class="btn secondary">Export</button>
+            </div>
+        </div>
+
+        <!-- Results -->
+        <div class="section">
+            <h3>Results</h3>
+            <div id="results" class="results-container">
+                <div class="empty-state">Select text and click an action to see results here</div>
+            </div>
+        </div>
+
+        <!-- Status Bar -->
+        <div class="status-bar">
+            <span id="status">Ready</span>
+        </div>
+    </div>
+    <script src="sidepanel.js"></script>
+</body>
+</html>
